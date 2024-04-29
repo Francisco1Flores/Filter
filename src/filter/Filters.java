@@ -32,11 +32,7 @@ public class Filters {
                 tempImage[row][column] = new RgbTriple(blue, green, red); 
             } 
         }
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                image[i][j] = tempImage[i][j];
-            }  
-        }
+        System.arraycopy(image, 0, tempImage, 0, image.length);
     }
     
     public static void edge(int height, int width, RgbTriple[][] image) {
@@ -84,11 +80,7 @@ public class Filters {
             }
         }
         
-        for (int row = 0; row < height; row++) {
-            for (int column = 0; column < width; column++) {
-                image[row][column] = tempImage[row][column];
-            }
-        }
+        System.arraycopy(tempImage, 0, image, 0, image.length);
     }
     
     public static void grayscale(int height, int width, RgbTriple[][] image) {
